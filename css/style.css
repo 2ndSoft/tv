@@ -37,22 +37,17 @@ h5{font:700 36px/42px 'Raleway';padding-bottom:15px;}
 h6{font:700 32px/38px 'Raleway';padding-bottom:15px;}
 
 /* BUTTONS */
-.btn{margin-top:15px;cursor:pointer;}
+.button { width:240px; background: linear-gradient(#9797f2 1%, #9797f2 1px,  #e774c5 100%);border-radius:10px; border: none; color:#fff; padding: 15px 0; text-align: center;
+text-decoration: none; display: inline-block;font-size: 15px; margin: 4px; margin-top:10px;margin-bottom:10px;cursor: pointer;}
 
 /* ICONS */
 .fa{font-size:38px !important;}
 
-/* HEADER */
-header{background:#000;position:fixed;top:0;left:0;width:100%;z-index:9999;padding:15px 0;}
-header li{display:inline-block;margin-left:15px;}
-
-/* SLIDESHOW */
-#slideshow{padding:0;}
-#slideshow .row{height:calc(100vh - 69px);}
-#slideshow .carousel-item{background:#666;}
-
 /* FEATURES */
 #features{background:#666;color:#fff;}
+
+/* FOOTER */
+footer{ background:grey;position:fixed;left:0;bottom:0;width:100%;z-index:9999;color:white;padding:20px 0;}
 
 /* FORM ELEMENTS - Placeholder */
 form input::-webkit-input-placeholder,
@@ -71,6 +66,3 @@ form .error::-moz-placeholder{color:red;}
 form .error:-ms-input-placeholder{color:red;}
 form input,
 form textarea{display:block;width:100%;padding:10px;margin-bottom:25px;}
-
-/* CONTACT */
-#contact{background:#000;color:#666;}
