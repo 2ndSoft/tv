@@ -40,29 +40,77 @@ h6{font:700 32px/38px 'Raleway';padding-bottom:15px;}
 .button { width:240px; background: linear-gradient(#9797f2 1%, #9797f2 1px,  #e774c5 100%);border-radius:10px; border: none; color:#fff; padding: 15px 0; text-align: center;
 text-decoration: none; display: inline-block;font-size: 15px; margin: 4px; margin-top:10px;margin-bottom:10px;cursor: pointer;}
 
-/* ICONS */
-.fa{font-size:38px !important;}
+/* IMAGE */
+img {
+    wifth: inherit;
+    max-width: 100%;
+    height: auto;
+}
 
 /* FEATURES */
 #features{background:#666;color:#fff;}
 
-/* FOOTER */
-footer{ background:grey;position:fixed;left:0;bottom:0;width:100%;z-index:9999;color:white;padding:20px 0;}
+/* VIDEO-CONTAINER */
+#container,
+.video-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+}
 
-/* FORM ELEMENTS - Placeholder */
-form input::-webkit-input-placeholder,
-form textarea::-webkit-input-placeholder{font-weight:300;}
-form input:-moz-placeholder,
-form textarea:-moz-placeholder{font-weight:300;}
-form input::-moz-placeholder,
-form textarea::-moz-placeholder{font-weight:300;}
-form input:-ms-input-placeholder,
-form textarea:-ms-input-placeholder{font-weight:300;}
-form label.error{display:none !important;}
-form .error{border:1px solid red !important;color:red;}
-form .error::-webkit-input-placeholder{color:red;}
-form .error:-moz-placeholder{color:red;}
-form .error::-moz-placeholder{color:red;}
-form .error:-ms-input-placeholder{color:red;}
-form input,
-form textarea{display:block;width:100%;padding:10px;margin-bottom:25px;}
+#container .video-overlay {
+  z-index: 9999;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+}
+
+#container .video-content {
+  z-index: 99999;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#container .video-content .inner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+#container .video-content .inner h1 {
+  font-size: 64px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#container .video-content .inner em {
+  font-style: normal;
+  font-weight: 300;
+}
+
+
+#container .video-content .inner p {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-align: center;
+  padding: 0px 30px;
+}
+
+#container .video-content .inner a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+#footer { height:auto; background:#666; color:#fff; padding:5px;}
