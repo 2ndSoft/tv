@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/javascript">
+    function keydowncheck() {
+      var result = true;
+      var keycode = event.keyCode;
+      if(123 || 16 || 17 == keycode) {
+        result = false;
+      }
+      return result;
+    }
+  </script>
   <meta charset="utf-8">
   <meta property="og:title" content="온에어티비">
   <meta property="og:description" content="무료 실시간티비 앱">
@@ -12,16 +22,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/screen.css">
 </head>
-<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<body onkeydown="return keydowncheck();" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <script type="text/javascript">
-    // 버튼 방지
-    $(document).ready(function() { 
-      $(document).bind('keydown',function(e) { 
-        if ( e.keyCode == 123 /* F12 */ || e.keyCode == 16 /* Shift */ || e.keyCode == 17 /* Ctrl */ ) { 
-          e.preventDefault(); e.returnValue = false; 
-        } 
-      }); 
-    }); 
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'kr'}, 'google_translate_element');
     }
