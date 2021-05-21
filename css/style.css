@@ -1,116 +1,139 @@
-/* RESET */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {display:block;}
-body {line-height:1;}
-ol, ul {list-style:none;}
-blockquote, q {quotes:none;}
-blockquote:before, blockquote:after,
-q:before, q:after {content:'';content:none;}
-table {border-collapse:collapse;border-spacing:0;}
-*:focus,*:active,*:visited{outline:0 !important;}
-input:-webkit-autofill{-webkit-box-shadow:0 0 0px 1000px white inset;-webkit-text-fill-color:#000;}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'nanumgothic', sans-serif;
+}
+body{
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    font-size: 23px;
+    line-height: 24px;
+    color: #fff;
+    font-family: "nanumgothic";
+}
+h1{font:700 52px/58px 'nanumgothic';padding-bottom:15px;}
+h2{font:700 48px/54px 'nanumgothic';padding-bottom:15px;}
+h3{font:700 44px/50px 'nanumgothic';padding-bottom:15px;}
+h4{font:700 40px/46px 'nanumgothic';padding-bottom:15px;}
+h5{font:700 36px/42px 'nanumgothic';padding-bottom:15px;}
+h6{font:700 32px/38px 'nanumgothic';padding-bottom:15px;}
+nav{background-color: rgba(0, 0, 0, 0.29)}
+.main-nav{
+    float: right;
+    list-style-type: none;
+    margin-top: 30px;
+    margin-right: 50px;
+    z-index: 299;
+}
+.main-nav li{
+    display: inline-block;
+    margin-left: 40px;
+    list-style-type: none;
+    padding: 2px 10px;
+}
+.main-nav li a{font-weight: 900; font-size: 20px;}
+.navactive{
+    background: linear-gradient( to top, #e774c5, #9797f2 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.main-nav li:hover a{
+    background: linear-gradient( to top, #e774c5, #9797f2 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color .5s;
+}
+.menu{
+    position: fixed;
+    width: 100%;
+    padding-bottom: 7px;
+    z-index: 199;
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+    transition: all .6s ease;
+    top: 0;
+}
+header{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+video{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.hd-text { position: absolute; top: 50%; width: 100%; }
+.hd-text p { margin-top: -100px; text-align: center; font-size: 30px; background: linear-gradient( to top, #e774c5, #9797f2 ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.logo{
+    margin-left: 150px;
+    margin-top: 25px;
+    max-height: 85px;
+    max-width: 230px;
+    display: inline-block;
+}
+.btn_app{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right:-4px;
+}
+.btn_pc{
+    margin-left:-3px;
+    margin-right:-4px;
+}
+.btn_tv{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;    
+    margin-left:-3px;
+}
+.btn_group button{
+    border: 1px solid #fff;
+    background-color: rgba(0,0,0,0);
+    text-align: center;
+    color:#fff;
+    padding: 5px;
+}
+.btn_group button:hover{
+    color:white;
+    background: linear-gradient( to top, #e774c5, #9797f2 );
+}
 
-/* LAYOUT */
-body{font:16px/22px 'Raleway';text-align:center;padding-top:69px;}
-section{overflow:hidden;position:relative;padding:10vh 0;}
-strong{font-weight:700;}
 
-/* HEADINGS */
-h1{font:700 52px/58px 'Raleway';padding-bottom:15px;}
-h2{font:700 48px/54px 'Raleway';padding-bottom:15px;}
-h3{font:700 44px/50px 'Raleway';padding-bottom:15px;}
-h4{font:700 40px/46px 'Raleway';padding-bottom:15px;}
-h5{font:700 36px/42px 'Raleway';padding-bottom:15px;}
-h6{font:700 32px/38px 'Raleway';padding-bottom:15px;}
-
-/* BUTTONS */
-.button { width:240px; background: linear-gradient(#9797f2 1%, #9797f2 1px,  #e774c5 100%);border-radius:10px; border: none; color:#fff; padding: 15px 0; text-align: center;
-text-decoration: none; display: inline-block;font-size: 15px; margin: 4px; margin-top:10px;margin-bottom:10px;cursor: pointer;}
-
-/* IMAGE */
 img {
     wifth: inherit;
     max-width: 100%;
     height: auto;
 }
-
-/* FEATURES */
-#features{background:#666;color:#fff;}
-
-/* VIDEO-CONTAINER */
-#container,
-.video-overlay {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
+.top{
+    margin-top: 30px;
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
 }
-
-#container .video-overlay {
-  z-index: 9999;
-  background: rgba(0,0,0,0.5);
-  width: 100%;
+.bottom{
+    margin-bottom: 18px;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
 }
-
-#container .video-content {
-  z-index: 99999;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+.bycenter {
+    text-align: center;
 }
-
-#container .video-content .inner {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
+footer{
+    width: 100%;
+    padding: 15px;
+    background-color:#484848;
+    text-align: center;
+    color: #ffffff;
 }
-
-#container .video-content .inner h1 {
-  font-size: 64px;
-  text-transform: uppercase;
-  color: #fff;
-  letter-spacing: 2px;
-  font-weight: 500;
-  text-align: center;
+footer i{
+    font-size: 25px;
+    color: #dc0000;
 }
-
-#container .video-content .inner em {
-  font-style: normal;
-  font-weight: 300;
-}
-
-
-#container .video-content .inner p {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  text-align: center;
-  padding: 0px 30px;
-}
-
-#container .video-content .inner a {
-  color: #fff;
-  text-decoration: underline;
-}
-
-/* FOOTER */
-#footer { height:auto; background:#666; color:#fff; padding:5px;}
