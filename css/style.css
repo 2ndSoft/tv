@@ -102,12 +102,74 @@ video{
     color:#fff;
     padding: 5px;
 }
-.btn_group button:hover{
-    color:white;
-    background: linear-gradient( to top, #e774c5, #9797f2 );
+.btn_lol {
+    text-transform: uppercase!important;
+    letter-spacing: 2px;
+    color: #fff;
+    cursor: hand;
+    text-align: center;
+    text-transform: capitalize;
+    position: relative;
+    overflow: hidden!important;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    background: transparent!important;
+    z-index:10;
 }
-
-
+.btn_lol:hover {
+    border: 1px solid #e774c5;
+    color: #fff !important;
+}
+.btn_lol::before {
+    content: '';
+    width: 0%;
+    height: 100%;
+    display: block;
+    background: #e774c5;
+    position: absolute;
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg); 
+    transform: skewX(-20deg);   
+    left: -10%;
+    opacity: 1;
+    top: 0;
+    z-index: -12;
+    -moz-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+    -o-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+    -webkit-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow:2px 0px 14px rgba(0,0,0,.6);
+} 
+.btn_lol::after {
+    content: '';
+    width: 0%;
+    height: 100%;
+    display: block;
+    background: #9797f2;
+    position: absolute;
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg); 
+    transform: skewX(-20deg);   
+    left: -10%;
+    opacity: 0;
+    top: 0;
+    z-index: -15;
+    -webkit-transition: all .94s cubic-bezier(.2,.95,.57,.99);
+    -moz-transition: all .4s cubic-bezier(.2,.95,.57,.99);
+    -o-transition: all .4s cubic-bezier(.2,.95,.57,.99);
+    transition: all .4s cubic-bezier(.2,.95,.57,.99);
+    box-shadow: 2px 0px 14px rgba(0,0,0,.6);
+}
+.btn_lol:hover::before, .btn:hover::before{
+  opacity:1;
+  width: 116%;
+}
+.btn_lol:hover::after, .btn:hover::after{
+  opacity:1;
+  width: 120%;
+}
 img {
     wifth: inherit;
     max-width: 100%;
