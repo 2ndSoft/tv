@@ -73,7 +73,7 @@ video{
     overflow: hidden;
 }
 .hd-text { position: absolute; top: 50%; width: 100%; }
-.hd-text p { margin-top: -100px; text-align: center; font-size: 30px; background: linear-gradient( to top, #e774c5, #9797f2 ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hd-text p { margin-top: -100px; text-align: center; font-size: 20px; background: linear-gradient( to top, #e774c5, #9797f2 ); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .logo{
     margin-left: 150px;
     margin-top: 25px;
