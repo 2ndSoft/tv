@@ -40,15 +40,12 @@ nav{background-color: rgba(0, 0, 0, 0.29)}
 }
 .main-nav li a{font-weight: 900; font-size: 20px;}
 .navactive{
-    background: linear-gradient( to top, #e774c5, #9797f2 );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
 }
 .main-nav li:hover a{
-    background: linear-gradient( to top, #e774c5, #9797f2 );
+    background: linear-gradient( to right, #e774c5, #9797f2 );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: color .5s;
 }
 .menu{
     position: fixed;
