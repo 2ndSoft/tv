@@ -25,7 +25,7 @@
     }
     .heading{position: relative}
     .mobile-nav-icon{display: block}
-    .sub-btn{
+    .btn-tv{
         margin-left: 10px !important;
         margin-top: 10px;
     }
@@ -47,24 +47,24 @@
 }
 
 @media only screen and (max-width: 320px){
-    .heroin-text h3{font-size: 18px}
-    .heroin-text h1{font-size: 25px}
+    .m_text h3{font-size: 18px}
+    .m_text h1{font-size: 25px}
     .logo{width: 170px}
     .inner-text{font-size: 140%;}
-    .sub-btn{font-size: 107%}
+    .btn-tv{font-size: 107%}
 }
 
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 568px)
 and (orientation : landscape) {
-    .heroin-text h3{font-size: 15px}
-    .heroin-text h1{font-size: 23px}
+    .m_text h3{font-size: 15px}
+    .m_text h1{font-size: 23px}
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .heroin-text h3{font-size: 18px}
-    .heroin-text h1{font-size: 25px}
+    .m_text h3{font-size: 18px}
+    .m_text h1{font-size: 25px}
     .main-nav li{margin-bottom: 5px}
     .inner-text{font-size: 130%;}
     .logo{height: 60px;margin: 0}
