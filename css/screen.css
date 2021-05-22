@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1024px){
     nav .logo{margin-left: 0}
-    .subscribe{margin-left: 10px}
+    .onbtn{margin-left: 10px}
     #subBtn{margin-left: 80px}
 }
 
@@ -36,14 +36,14 @@
 @media only screen and (max-width: 640px){
     .logo{width: 170px;margin-left: 100px;margin-top: 10px}
     .inner-text{font-size: 145%;}
-    .btn-shop{font-size: 107%}
+    .btn-tv{font-size: 107%}
 }
 
 @media only screen and (max-width: 480px){
     .logo{margin: 0}
     .mobile-nav-icon{margin-top: 20px;}
     .col{margin-bottom: 10px}
-    .subscribe h3{line-height: 1.5}
+    .m_title h3{line-height: 1.5}
 }
 
 @media only screen and (max-width: 320px){
@@ -51,7 +51,7 @@
     .heroin-text h1{font-size: 25px}
     .logo{width: 170px}
     .inner-text{font-size: 140%;}
-    .btn-shop{font-size: 107%}
+    .sub-btn{font-size: 107%}
 }
 
 @media only screen
