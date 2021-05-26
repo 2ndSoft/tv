@@ -71,7 +71,7 @@ video{
     filter: brightness(50%);
 }
 .hd-text { position: absolute; top: 50%; width: 100%; }
-.hd-text p { margin-top: -100px; text-align: center; font-size: 20px; color: #fff }
+.hd-text p { text-align: center; font-size: 20px; color: #fff }
 .logo{
     margin-left: 150px;
     margin-top: 25px;
