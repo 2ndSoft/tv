@@ -79,28 +79,15 @@ video{
     max-width: 230px;
     display: inline-block;
 }
-.btn_app{
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    margin-right:-4px;
-}
-.btn_pc{
-    margin-left:-3px;
-    margin-right:-4px;
-}
-.btn_tv{
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;    
-    margin-left:-3px;
-}
-.btn_group button{
+.btn_lol {
+    width: 250px;
+    height: 50px;
+    border-radius: 12px;
     border: 2px solid #fff;
     background-color: rgba(0,0,0,0);
     text-align: center;
     color:#fff;
     padding: 5px;
-}
-.btn_lol {
     text-transform: uppercase!important;
     letter-spacing: 2px;
     color: #fff;
@@ -159,11 +146,11 @@ video{
     transition: all .4s cubic-bezier(.2,.95,.57,.99);
     box-shadow: 2px 0px 14px rgba(0,0,0,.6);
 }
-.btn_lol:hover::before, .btn:hover::before{
+.btn_lol:hover::before, .btn:hover::before {
   opacity:1;
   width: 116%;
 }
-.btn_lol:hover::after, .btn:hover::after{
+.btn_lol:hover::after, .btn:hover::after {
   opacity:1;
   width: 120%;
 }
