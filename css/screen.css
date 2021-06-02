@@ -53,7 +53,7 @@
     .logo{width: 170px}
     .inner-text{font-size: 140%;}
     .btn-tv{font-size: 107%}
-    .main-tltie{margin-top: -60px; font-size: 25px}
+    .main-tltie{margin-top: -40px; font-size: 25px}
 }
 
 @media only screen
@@ -62,7 +62,7 @@ and (max-device-width : 568px)
 and (orientation : landscape) {
     .m_text h3{font-size: 15px}
     .m_text h1{font-size: 23px}
-    .main-tltie{margin-top: -60px; font-size: 25px}
+    .main-tltie{margin-top: -40px; font-size: 25px}
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
