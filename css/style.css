@@ -5,7 +5,8 @@
     font-family: 'nanumgothic', sans-serif;
 }
 body{
-    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 ul{
@@ -17,6 +18,9 @@ a{
     line-height: 24px;
     color: #fff;
     font-family: "nanumgothic";
+}
+p{
+    text-align: center;
 }
 h1{font:700 52px/58px 'nanumgothic';padding-bottom:15px;}
 h2{font:700 48px/54px 'nanumgothic';padding-bottom:15px;}
@@ -50,7 +54,7 @@ nav{background-color: rgba(0, 0, 0, 0.29)}
 .menu{
     position: fixed;
     width: 100%;
-    padding-bottom: 7px;
+    padding-bottom: 1px;
     z-index: 199;
     -webkit-animation-delay: .1s;
     animation-delay: .1s;
@@ -78,6 +82,18 @@ video{
     max-height: 85px;
     max-width: 230px;
     display: inline-block;
+}
+.title_box {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( to right, #e774c5, #9797f2 );
+    margin-top: -4px;
+}
+.box_title { 
+    top: 6px;
+    text-align: center;
+    color: #fff;
+    position: relative;
 }
 .btn_lol {
     width: 250px;
@@ -146,11 +162,11 @@ video{
     transition: all .4s cubic-bezier(.2,.95,.57,.99);
     box-shadow: 2px 0px 14px rgba(0,0,0,.6);
 }
-.btn_lol:hover::before, .btn:hover::before {
+.btn_lol:hover::before, .btn:hover::before{
   opacity:1;
   width: 116%;
 }
-.btn_lol:hover::after, .btn:hover::after {
+.btn_lol:hover::after, .btn:hover::after{
   opacity:1;
   width: 120%;
 }
@@ -168,9 +184,6 @@ img {
     margin-bottom: 18px;
     -webkit-animation-delay: .5s;
     animation-delay: .5s;
-}
-.bycenter {
-    text-align: center;
 }
 footer{
     width: 100%;
