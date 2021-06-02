@@ -38,7 +38,7 @@ nav{background-color: rgba(0, 0, 0, 0.29)}
 }
 .main-nav li{
     display: inline-block;
-    margin-left: 40px;
+    margin-left: 10px;
     list-style-type: none;
     padding: 2px 10px;
 }
