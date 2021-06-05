@@ -1,0 +1,182 @@
+<?
+   header ('Content-Type: text/html; charset=UTF-8');
+
+   $KBS1 = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=11&ch_type=globalList';
+   $KBS2 = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=12&ch_type=globalList';
+   $KBS24 = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=81&ch_type=globalList';
+   $KBSDrama = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=N91&ch_type=globalList';
+   $KBSjoy = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=N92&ch_type=globalList';
+   $KBSStory = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=N94&ch_type=globalList';
+   $KBSLife = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=N93&ch_type=globalList';
+   $KBSKids = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=N96&ch_type=globalList';
+   $KBSWORLDTV = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=14&ch_type=globalList';
+   
+   $KBS_1Radio = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=21&ch_type=radioList';
+   $KBS_2HappyFM = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=22&ch_type=radioList';
+   $KBS_2Radio_view = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=22&ch_type=radioList&openradio=on';
+   $KBS_3Radio = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=23&ch_type=radioList';
+   $KBS_ClassicFM = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=24&ch_type=radioList';
+   $KBS_CoolFM = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=25&ch_type=radioList';
+   $KBS_Korean = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=26&ch_type=radioList';
+   $KBS_WORLD = 'https://onair.kbs.co.kr/index.html?sname=onair&stype=live&ch_code=I92&ch_type=radioList';
+
+  echo("<script language=javascript> playM3u8(\"get_my_kbs_contents($KBS1)\"); </script>");
+
+   function GetKBSRadioLive($url) { 
+      $data = file_get_contents_curl($url);
+      $str = Kbs_Bora_splits($data, 'channel_code\":\"22\"},{\"streamprotocol\":\"HTTPS\",\"service_url\":\"', '\",\"nid');
+      return $str; 
+   }
+
+   function get_mbc_contents($url) { 
+      $data = mbc_get_contents_curl($url);
+      $str = splits($data, 'MediaURL":"', '&csu=false');
+      return $str; 
+   }
+
+   function get_sbs_rm($url) { 
+      $data = file_get_contents_curl($url);
+      $str = splits($data, 'mediasource":{"default":"Y","mediarscuse":"05","medianame":"고화질","mediaurl":"', '","required_login');
+      return $str; 
+   }
+   
+   function get_sbscnbc($url) { 
+      $data = file_get_contents_curl($url);
+      $str = splits($data, 'mediasourcelist":[{"default":"Y","mediarscuse":"02","medianame":"일반화질","mediaurl":"', '","required_login');
+      return $str; 
+   }
+
+   function get_my_sbs_contents($url) { 
+      $data = file_get_contents_curl($url);
+      $str = splits($data, 'mediasourcelist":[{"default":"Y","mediarscuse":"05","medianame":"고화질","mediaurl":"', '","required_login');
+      return $str; 
+   }
+
+   function get_my_kbs_contents($url) { 
+      $data = file_get_contents_curl($url);
+      $str = splits($data, 'var channel = JSON.parse', '\",\"nid');
+      $end = substr($str, 93);
+      return $end; 
+   }
+
+   function get_m3u8($chid) {
+      /*
+         Formats
+         96 = 1080P Full HD
+         95 = 720P HD
+         94 = 480P SD
+         93 = 360P Low
+      */
+      $string = get_data('https://www.youtube.com/watch?v=' . $chid);
+
+      $hlsManifestUrl = '/,\\\\"hlsManifestUrl\\\\":\\\\"(.*?)\\\\"/m';
+      preg_match_all($hlsManifestUrl, $string, $matches, PREG_PATTERN_ORDER, 0);
+
+      $var1=$matches[1][0];
+      $var1=str_replace("\/", "/", $var1);
+      $man = get_data($var1);
+
+      preg_match_all('/(https:\/.*\/94\/.*index.m3u8)/U',$man,$matches, PREG_PATTERN_ORDER);
+      $stream_link=$matches[1][0];
+
+      return $stream_link;
+   }
+
+   function get_data($url) {
+      $ch = curl_init();
+      $timeout = 5;
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36");
+      curl_setopt($ch, CURLOPT_REFERER, "https://www.youtube.com/");
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+      $data = curl_exec($ch);
+      curl_close($ch);
+      return $data;
+   }
+
+   function mbc_get_contents_curl($url) { 
+      $agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0)';
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+      curl_setopt ($ch, CURLOPT_SSLVERSION,3);
+      curl_setopt($ch, CURLOPT_HEADER, 1);
+      curl_setopt ($ch, CURLOPT_USERAGENT, $agent);
+      curl_setopt ($ch, CURLOPT_TIMEOUT, 30);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $data = curl_exec($ch); 
+      curl_close($ch);
+      return $data; 
+   }
+
+   function file_get_contents_curl($url) { 
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_HEADER, 0);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_URL, $url);
+      $data = curl_exec($ch); 
+      curl_close($ch);
+      return $data; 
+   }
+
+   function Kbs_Bora_splits($data, $first, $end, $num = 2)
+   {
+      $temp = @explode($first, $data);
+      $temp = @explode($end, $temp[$num]);
+      $temp = $temp[0];
+      return $temp;
+   }
+
+   function splits($data, $first, $end, $num = 1)
+   {
+      $temp = @explode($first, $data);
+      $temp = @explode($end, $temp[$num]);
+      $temp = $temp[0];
+      return $temp;
+   }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="hls.min.js"></script>
+  <title>온에어티비</title>
+  <style>
+    body{
+      background-color:black;
+    }
+    #video{
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      margin: auto;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+    <video id="video" style="width: 100%; height: 100%;" controls="controls" poster="logo512.png"></video>
+    <script>
+      
+      function playM3u8(url) {
+        if(Hls.isSupported()) {
+            var video = document.getElementById('video');
+            video.volume = 1.0;
+            var hls = new Hls();
+            var m3u8Url = decodeURIComponent(url)
+            hls.loadSource(m3u8Url);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                video.play();
+            });
+        }
+      }
+ 
+    </script>
+  </body>
+</html>
